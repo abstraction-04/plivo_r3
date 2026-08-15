@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InspireWorks - Plivo IVR Demonstration Panel</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="background-glows">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="main-header">
+      <div class="logo-area">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h1>Inspire<span>Works</span></h1>
+      </div>
+      <div id="tunnel-badge" class="tunnel-badge status-disconnected">
+        <span class="pulse-dot"></span>
+        <span id="tunnel-status-text">Detecting Ngrok...</span>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="dashboard-grid">
+      <!-- Call Control Card -->
+      <section class="glass-card call-control-section">
+        <div class="card-header">
+          <h2>Start Outbound Call</h2>
+          <p>Enter your phone number to receive the automated IVR call.</p>
+        </div>
+        
+        <form id="call-form" class="call-form">
+          <div class="input-group">
+            <label for="phoneNumber">Phone Number (E.164 format)</label>
+            <div class="phone-input-wrapper">
+              <span class="phone-prefix">📞</span>
+              <input type="tel" id="phoneNumber" placeholder="+919876543210" required>
+            </div>
+            <span class="input-note">Include country code (e.g. +91 for India, +1 for US)</span>
+          </div>
+          
+          <button type="submit" id="submit-btn" class="glow-btn">
+            <span class="btn-text">Initiate IVR Call</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+        </form>
+
+        <div id="call-status-box" class="call-status-box hidden">
+          <div class="status-indicator">
+            <div class="spinner"></div>
+            <span id="call-status-label">Calling...</span>
+          </div>
+          <button id="reset-call-btn" class="text-btn">Reset</button>
+        </div>
+      </section>
+
+      <!-- Reference Details Card -->
+      <section class="glass-card instructions-section">
+        <div class="card-header">
+          <h2>IVR Flow Instructions</h2>
+          <p>Follow these steps on your phone during the call to test the full flow.</p>
+        </div>
+        
+        <div class="ivr-steps">
+          <div class="ivr-step">
+            <div class="step-num">01</div>
+            <div class="step-detail">
+              <h3>Answer the Call</h3>
+              <p>When the phone rings, answer to trigger the OTP greeting.</p>
+            </div>
+          </div>
+          <div class="ivr-step">
+            <div class="step-num">02</div>
+            <div class="step-detail">
+              <h3>Enter Security PIN</h3>
+              <p>Enter <strong>1503</strong> (representing March 15th birthday). Fail intentionally with a wrong PIN to check the error message.</p>
+            </div>
+          </div>
+          <div class="ivr-step">
+            <div class="step-num">03</div>
+            <div class="step-detail">
+              <h3>Level 1: Language</h3>
+              <p>Press <strong>1</strong> for English, or <strong>2</strong> for Spanish.</p>
+            </div>
+          </div>
+          <div class="ivr-step">
+            <div class="step-num">04</div>
+            <div class="step-detail">
+              <h3>Level 2: Options</h3>
+              <p>Press <strong>1</strong> to play an audio message (demo music) or <strong>2</strong> to forward to a live associate (02264236412).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Terminal Card -->
+      <section class="glass-card terminal-section">
+        <div class="card-header">
+          <div class="header-left">
+            <h2>Live Call Log</h2>
+            <p>Real-time events streamed from Plivo webhook server</p>
+          </div>
+          <button id="clear-logs-btn" class="clear-btn" title="Clear Console">Clear</button>
+        </div>
+        
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">logs@inspireworks:~</span>
+          </div>
+          <div id="terminal-content" class="terminal-content">
+            <div class="log-line system-msg">[System] Ready. Connect ngrok tunnel and enter phone number above to start.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>InspireWorks Voice Application Demo &copy; 2026. Powered by Plivo API.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
