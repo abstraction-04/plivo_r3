@@ -22,8 +22,8 @@ Ensure you have **Python 3.9+** installed.
 Create a `.env` file in the root directory with your Plivo details:
 
 ```env
-PLIVO_AUTH_ID=<>
-PLIVO_AUTH_TOKEN=<>
+PLIVO_AUTH_ID=MAMTAWMGI0MZCTNTYZZS
+PLIVO_AUTH_TOKEN=VjYjYtZTE1OS00NWRmLTk3MGUtNzJhNjc2
 PLIVO_SOURCE_NUMBER=+918035454161
 ASSOCIATE_NUMBER=02264236412
 PORT=5000
