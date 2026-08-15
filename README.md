@@ -26,13 +26,13 @@ PLIVO_AUTH_ID=<>
 PLIVO_AUTH_TOKEN=<>
 PLIVO_SOURCE_NUMBER=+918035454161
 ASSOCIATE_NUMBER=02264236412
-PORT=5005
+PORT=5000
 ```
 
 ### 3. Expose via Ngrok
-In a separate terminal tab, run `ngrok` to expose your local port `5005` to the public internet:
+In a separate terminal tab, run `ngrok` to expose your local port `5000` to the public internet:
 ```bash
-ngrok http 5005
+ngrok http 5000
 ```
 *Note: The application will automatically detect this tunnel URL via ngrok's local API. You do not need to manually configure it.*
 
@@ -60,7 +60,7 @@ Once the server starts, open [http://localhost:5005](http://localhost:5005) in y
 During the call, follow these steps to test the full flow:
 1. **Answer** the call when it rings.
 2. Enter an incorrect PIN (e.g. `1111`) first. Verify the bot prompts you again.
-3. Enter the correct PIN **`1503`**. Verify it proceeds to language selection.
+3. Enter the correct PIN **`1912`**. Verify it proceeds to language selection.
 4. Press **`1`** for English, or **`2`** for Spanish.
 5. In Level 2:
    - Press **`1`** to play the music audio file.
