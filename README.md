@@ -5,7 +5,7 @@ This repository contains a Python (Flask)-based implementation of an interactive
 ## Project Features
 - **Outbound Calling Dashboard**: A responsive web interface styled with modern dark mode and glassmorphism.
 - **Auto-Discovery Tunneling**: Automatically queries local `ngrok` metadata to determine and register the public callback URL.
-- **OTP Authentication Layer**: Prompts and validates a hardcoded 4-digit security PIN (`1503`) using DTMF digits. If incorrect, it re-prompts the caller.
+- **OTP Authentication Layer**: Prompts and validates a hardcoded 4-digit security PIN (`1912`) using DTMF digits. If incorrect, it re-prompts the caller.
 - **Multi-Level IVR Menu**:
   - **Level 1 (Language Selection)**: English (`1`) or Spanish (`2`).
   - **Level 2 (Actions)**: Play a hosted MP3 file (`1`) or connect to a live associate (`2`).
@@ -30,9 +30,9 @@ PORT=5000
 ```
 
 ### 3. Expose via Ngrok
-In a separate terminal tab, run `ngrok` to expose your local port `5000` to the public internet:
+In a separate terminal tab, run `ngrok` to expose your local port `5005` to the public internet:
 ```bash
-ngrok http 5000
+ngrok http 5005
 ```
 *Note: The application will automatically detect this tunnel URL via ngrok's local API. You do not need to manually configure it.*
 
